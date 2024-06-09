@@ -58,6 +58,18 @@ app.post('/users', async (req, res) => {
 
 // list users
 
+app.get('/users', async (req, res) => {
+    try {
+        const users = await User.find({});
+        if(!users) res.status(404).send("No User Found");
+        res.status(200).send(users);
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+
+// list users
+
 app.get('/users/me', auth, async (req, res) => {
     try {
         res.status(200).send(req.user);
