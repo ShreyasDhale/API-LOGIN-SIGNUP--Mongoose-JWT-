@@ -68,7 +68,7 @@ app.get('/users', async (req, res) => {
     }
 });
 
-// list users
+// list user using headers
 
 app.get('/users/me', auth, async (req, res) => {
     try {
